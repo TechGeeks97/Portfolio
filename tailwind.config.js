@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}", // if using App Router
-    "./pages/**/*.{js,ts,jsx,tsx}", // if using Pages Router
+
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -15,6 +15,13 @@ module.exports = {
       fontFamily: {
         OutFit: ["Outfit", "sans-serif"],
         Ovo: ["Ovo", "serif"],
+      },
+      boxShadow: {
+        black: "4px 4px 20px rgba(0,0,0,0.5)",
+        white: "4px 4px 20px rgba(255,255,255,0.5)",
+      },
+      gridTemplateColumns: {
+        auto: "repeat(auto-fit,minmax(200px,1fr))",
       },
     },
   },

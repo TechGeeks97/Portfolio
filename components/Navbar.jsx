@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
 import { navItems } from "@/utils/constants";
 const Navbar = () => {
   const sideMenuRef = useRef();
-
+  const [isScroll, setIsScroll] = useState(false);
   const openMenu = () => {
     sideMenuRef.current.classList.remove("translate-x-full");
     sideMenuRef.current.classList.add("translate-x-0");
@@ -14,6 +14,15 @@ const Navbar = () => {
     sideMenuRef.current.classList.remove("translate-x-0");
     sideMenuRef.current.classList.add("translate-x-full");
   };
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (scrollY > 50) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+    });
+  }, []);
   return (
     <>
       <div className="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]">
@@ -23,12 +32,25 @@ const Navbar = () => {
           className="w-full"
         />
       </div>
-      <nav className="w-full fixed p-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between">
+      <nav
+        className={`w-full fixed p-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 ${
+          isScroll ? "bg-white bg-opaciy-50 backdrop-blur-lg" : ""
+        }`}
+      >
         <a href="" className="w-20">
-          <Image src={assets.logo} alt="logo" />
+          <Image
+            fill
+            src={assets.logo}
+            alt="logo"
+            className="object-contain object-left"
+          />
         </a>
 
-        <ul className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50">
+        <ul
+          className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 ${
+            isScroll ? "" : " bg-white shadow-sm bg-opacity-50"
+          }`}
+        >
           {Object.values(navItems).map((nav_items, index) => (
             <li key={index}>
               <a

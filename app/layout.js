@@ -1,5 +1,5 @@
-import { Outfit as OutfitFont, Ovo as OvoFont } from "next/font/google";
 import "./globals.css";
+import { Outfit as OutfitFont, Ovo as OvoFont } from "next/font/google";
 
 const outfit = OutfitFont({
   subsets: ["latin"],
@@ -20,10 +20,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
+      {/* leading8 will give line height to all text component */}
       <body
         suppressHydrationWarning
-        className={`${outfit.className} ${ovo.className} antialiased`}
+        className={`${outfit.className} ${ovo.className} antialiased leading-8 overflow-x-hidden`}
       >
         {children}
       </body>
