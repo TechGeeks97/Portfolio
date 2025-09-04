@@ -143,13 +143,13 @@ export const serviceData = [
       "Developing predictive models and intelligent systems using machine learning and AI techniques.",
     link: "",
   },
-  {
-    icon: assets.visualization,
-    title: "Data Visualization",
-    description:
-      "Transforming complex datasets into clear, interactive visual insights for better understanding.",
-    link: "",
-  },
+  // {
+  //   icon: assets.visualization,
+  //   title: "Data Visualization",
+  //   description:
+  //     "Transforming complex datasets into clear, interactive visual insights for better understanding.",
+  //   link: "",
+  // },
 ];
 
 export const infoList = [
@@ -171,6 +171,67 @@ export const infoList = [
     iconDark: assets.project_icon_dark,
     title: "Projects",
     description: "Built multiple web and mobile development projects",
+  },
+];
+
+export const reviews = [
+  {
+    project: "Simple Marketplace and Product Details page",
+    role: "Full-Stack Developer",
+    rating: 5.0,
+    comment:
+      "Nouman is an experienced, professional, and very trustworthy engineer. He conducted daily sprints, gave constant updates, raised the right questions, and built what was expected in the timeline. Highly recommended to develop Web Applications.",
+  },
+  {
+    project: "Back-end React Native Developer",
+    role: "",
+    rating: 5.0,
+    comment: "",
+  },
+  {
+    project: "React JS Developer",
+    role: "",
+    rating: 5.0,
+    comment: "",
+  },
+  {
+    project: "React Native Developer (scope updated)",
+    role: "",
+    rating: 5.0,
+    comment: "",
+  },
+  {
+    project: "Need a full stack developer for a project",
+    role: "",
+    rating: 5.0,
+    comment:
+      "Thank you for pulling everything together on such short notice. I appreciate you getting this to me so quickly so I have time to review it.",
+  },
+  {
+    project: "Experienced React Native Developers Needed",
+    role: "",
+    rating: 5.0,
+    comment:
+      "Excellent to work with. Very hardworking and will go the extra mile to make sure project is on schedule. I really appreciate Nouman's effort and will recommend him any day any time. He is very honest too - he actually removed my project from his computer when he was done, honoring the NDA. Not so many freelancers will be that truthful. Will hire him again on future project/s.",
+  },
+  {
+    project: "Creative Project Specialist",
+    role: "",
+    rating: 5.0,
+    comment: "",
+  },
+  {
+    project: "React Native Peer-to-Peer App",
+    role: "",
+    rating: 4.5,
+    comment:
+      "Completed project in time, and was in constant communication. Supportive and helped with setting up the project before handing it over.",
+  },
+  {
+    project: "React Native App Editing",
+    role: "",
+    rating: 5.0,
+    comment: "",
   },
 ];
 
