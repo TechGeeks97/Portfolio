@@ -1,7 +1,10 @@
-const navItems = {
-  home: "Home",
-  about_me: "About Me",
-  clients_feedback: "Clients Feedback",
-  contact_me: "Contact Me",
-};
+const navItems = [
+  {
+    name: "Home",
+    id: "home",
+  },
+  { name: "About Me", id: "about" },
+  { name: "My Services", id: "services" },
+  { name: "Contact Me", id: "contact" },
+];
 export { navItems };

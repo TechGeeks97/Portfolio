@@ -4,25 +4,64 @@ import React from "react";
 
 function Header() {
   return (
-    <div>
-      <div>
-        <Image
-          src={assets.profile_img}
-          alt="profile image"
-          className="rounded-full w-32"
-        />
+    <div
+      id="home"
+      className="pt-[80px] lg:pt-[96px] scroll-mt-[80px] lg:scroll-mt-[96px] flex flex-col items-center"
+    >
+      <div className="w-full max-w-2xl text-center">
+        {/* Profile Image */}
+        <div className="mb-4 mt-6">
+          <Image
+            src={assets.profile_img}
+            alt="profile image"
+            className="rounded-full w-24 sm:w-32 mx-auto"
+          />
+        </div>
+
+        {/* Intro */}
+        <h3 className="flex items-center justify-center text-lg sm:text-xl md:text-2xl mb-2 gap-2 font-Ovo">
+          Hi, I'm Nouman Saeed
+          <Image
+            src={assets.hand_icon}
+            alt="hand icon"
+            className="w-5 sm:w-6"
+          />
+        </h3>
+
+        {/* Headline */}
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[45px] font-Ovo leading-snug mb-4 sm:mb-6 mx-auto">
+          Full-Stack Developer | Data Science Professional Based in London
+        </h1>
+
+        {/* Description */}
+        <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-6 leading-relaxed font-ovo mx-auto">
+          I am a Full-Stack Developer with 4 years of experience in software
+          engineering and a recently completed MSc in Data Science. My expertise
+          spans full-stack development, machine learning, and data analysis,
+          enabling me to build scalable applications, develop intelligent
+          systems, and deliver actionable, data-driven insights.
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#contact"
+            className="w-full sm:w-auto px-8 py-3 border rounded-full bg-black text-white flex items-center justify-center gap-2"
+          >
+            Contact Me
+            <Image src={assets.right_arrow_white} alt="arrow" className="w-4" />
+          </a>
+
+          <a
+            href="/Resume-Nouman-Saeed.pdf"
+            download
+            className="w-full sm:w-auto px-8 py-3 border rounded-full flex items-center justify-center gap-2"
+          >
+            Resume
+            <Image src={assets.download_icon} alt="download" className="w-4" />
+          </a>
+        </div>
       </div>
-      <h3 className="flex items-center text-xl md:text-2xl font-Ovo">
-        Hi I'm Nouman Saeed
-        <Image src={assets.hand_icon} alt="" className="w-6" />
-      </h3>
-      <h1 className="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
-        Full Stack developer | Machine Learning Engineer based in London{" "}
-      </h1>
-      <p>
-        I am a full stack devlope from England with 4 years of experience in
-        multiple Software House.
-      </p>
     </div>
   );
 }
