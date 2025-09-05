@@ -12,6 +12,7 @@ function Header() {
         {/* Profile Image */}
         <div className="mb-4 mt-6">
           <Image
+            priority
             src={assets.profile_img}
             alt="profile image"
             className="rounded-full w-24 sm:w-32 mx-auto"

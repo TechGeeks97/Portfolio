@@ -7,4 +7,10 @@ const navItems = [
   { name: "My Services", id: "services" },
   { name: "Contact Me", id: "contact" },
 ];
-export { navItems };
+
+const social_mediaLinks = {
+  instagram: "https://www.instagram.com/noumansaeed93",
+  github: "https://github.com/TechGeeks97",
+  linkedin: "https://www.linkedin.com/in/nouman93/",
+};
+export { navItems, social_mediaLinks };
