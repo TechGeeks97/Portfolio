@@ -1,3 +1,4 @@
+import { navItems, social_mediaLinks } from "@/utils/constants";
 import React from "react";
 import {
   FaGithub,
@@ -24,26 +25,13 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold mb-2">Quick Links</h3>
           <ul className="flex flex-col gap-1">
-            <li>
-              <a href="#about" className="hover:text-white duration-300">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#services" className="hover:text-white duration-300">
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="hover:text-white duration-300">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-white duration-300">
-                Contact
-              </a>
-            </li>
+            {navItems.map(({ name, id }) => (
+              <li key={id}>
+                <a href={`#${id} `} className="hover:text-white duration-300">
+                  {name}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -69,21 +57,21 @@ const Footer = () => {
           <h3 className="font-semibold mb-2">Follow Me</h3>
           <div className="flex items-center gap-4 text-white text-2xl">
             <a
-              href="https://github.com/TechGeeks97"
+              href={social_mediaLinks.github}
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaGithub className="hover:text-gray-400 transition-colors" />
             </a>
             <a
-              href="https://www.linkedin.com/in/nouman93/"
+              href={social_mediaLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaLinkedin className="hover:text-gray-400 transition-colors" />
             </a>
             <a
-              href="https://www.instagram.com/noumansaeed93"
+              href={social_mediaLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >

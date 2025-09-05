@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
-import { navItems } from "@/utils/constants";
+import { navItems, social_mediaLinks } from "@/utils/constants";
 
 const Navbar = () => {
   const sideMenuRef = useRef();
@@ -110,13 +110,13 @@ const Navbar = () => {
             {/* Optional CTA / Social Links */}
             <div className="mt-auto flex justify-center gap-4 pt-6 border-t border-gray-200">
               <a
-                href="https://www.instagram.com/noumansaeed93"
+                href={social_mediaLinks.github}
                 className="text-gray-500 hover:text-gray-800 transition"
               >
                 GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/nouman93/"
+                href={social_mediaLinks.linkedin}
                 className="text-gray-500 hover:text-gray-800 transition"
               >
                 LinkedIn
