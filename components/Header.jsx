@@ -54,7 +54,7 @@ function Header() {
           </a>
 
           <a
-            href="/Resume-Nouman-Saeed.pdf"
+            href="/Resume-Nouman-Saeed.pdf?v2"
             download
             className="w-full sm:w-auto px-8 py-3 border rounded-full flex items-center justify-center gap-2"
           >
