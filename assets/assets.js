@@ -17,7 +17,6 @@ import powerbi from "./powerbi.png";
 import jupyter from "./jupyter.png";
 import right_arrow_white from "./right-arrow-white.png";
 import logo from "./logo.png";
-import logo_dark from "./logo_dark.png";
 import mail_icon from "./mail_icon.png";
 import mail_icon_dark from "./mail_icon_dark.png";
 import profile_img from "./profile-img.png";
@@ -58,7 +57,6 @@ export const assets = {
   mongodb,
   right_arrow_white,
   logo,
-  logo_dark,
   mail_icon,
   mail_icon_dark,
   profile_img,
@@ -93,24 +91,34 @@ export const assets = {
 
 export const workData = [
   {
-    title: "Frontend project",
-    description: "Web Design",
+    title: "Racqy",
+    description: "Full-Stack Web Application",
     bgImage: "/work-1.png",
+    technologies: "React.js, Node.js, MongoDB",
   },
   {
-    title: "Geo based app",
-    description: "Mobile App",
+    title: "Assets Planet",
+    description: "Asset Management Platform",
     bgImage: "/work-2.png",
+    technologies: "Next.js, TypeScript, PostgreSQL",
   },
   {
-    title: "Photography site",
-    description: "Web Design",
+    title: "Pawzys",
+    description: "Pet Marketplace Platform",
     bgImage: "/work-3.png",
+    technologies: "React Native, Node.js, Firebase",
   },
   {
-    title: "UI/UX designing",
-    description: "UI/UX Design",
+    title: "Rental Property Management",
+    description: "Property Rental System",
     bgImage: "/work-4.png",
+    technologies: "Next.js, Express.js, MySQL",
+  },
+  {
+    title: "Sound Classification",
+    description: "Deep Learning ML Project",
+    bgImage: "/work-1.png",
+    technologies: "Python, TensorFlow, Deep Learning, Audio Processing",
   },
 ];
 
@@ -152,25 +160,80 @@ export const serviceData = [
   // },
 ];
 
+export const offerPackages = [
+  {
+    icon: assets.web,
+    title: "Startup Launch",
+    description:
+      "Give your new idea a polished marketing site with conversion-focused storytelling.",
+    deliverables: [
+      "Next.js landing with responsive states",
+      "CMS or headless hand-off",
+      "Analytics + deployment setup",
+    ],
+    timeline: "2 – 3 weeks",
+    price: "$2K – $5K",
+  },
+  {
+    icon: assets.mobile,
+    title: "Product Growth",
+    description:
+      "Refine or rebuild existing web/mobile experiences to ship faster iterations.",
+    deliverables: [
+      "Component refactors & performance tune",
+      "Design to pixel-perfect build",
+      "QA + monitoring playbook",
+    ],
+    timeline: "3 – 5 weeks",
+    price: "$4K – $8K",
+  },
+  {
+    icon: assets.dataAnalyst,
+    title: "Data Intelligence",
+    description:
+      "Unlock insights with modern data pipelines, dashboards, and executive-ready visuals.",
+    deliverables: [
+      "Data cleaning & modeling",
+      "Power BI / custom dashboards",
+      "Automation & documentation",
+    ],
+    timeline: "2 – 4 weeks",
+    price: "$3K – $7K",
+  },
+  {
+    icon: assets.machinelearning,
+    title: "Full-Stack Partner",
+    description:
+      "End-to-end builds that combine apps, APIs, and ML workflows under one accountable owner.",
+    deliverables: [
+      "Architecture & roadmap",
+      "Secure API + database layer",
+      "ML model integration",
+    ],
+    timeline: "4 – 8 weeks",
+    price: "$8K+",
+  },
+];
+
 export const infoList = [
   {
     icon: assets.code_icon,
     iconDark: assets.code_icon_dark,
-    title: "Languages",
+    title: "Languages & Technologies",
     description:
-      "HTML, CSS, JavaScript, Typescript, Python, SQL, Flask, React Js, Next Js, Node Js, React Native, Express Js",
+      "Frontend: HTML5, CSS3, JavaScript, TypeScript, React.js, Next.js, React Native, Redux, Tailwind CSS | Backend: Node.js, Express.js, Python, Flask, RESTful APIs, GraphQL | Databases: PostgreSQL, MySQL, MongoDB, Firebase | Data Science: Python, Pandas, NumPy, TensorFlow, scikit-learn, Jupyter Notebooks",
   },
   {
     icon: assets.edu_icon,
     iconDark: assets.edu_icon_dark,
-    title: "Education",
-    description: "BS Software Engineering, MSc Data Science",
+    title: "Education & Certifications",
+    description: "MSc Data Science - London South Bank University | BS Software Engineering - COMSATS | AI/Machine Learning Bootcamp - London South Bank University",
   },
   {
     icon: assets.project_icon,
     iconDark: assets.project_icon_dark,
     title: "Projects",
-    description: "Built multiple web and mobile development projects",
+    description: "Racqy (Full-Stack Web App), Assets Planet (Asset Management), Pawzys (Pet Marketplace), Rental Property Management, Sound Classification using Deep Learning",
   },
 ];
 

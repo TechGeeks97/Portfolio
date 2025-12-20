@@ -1,43 +1,72 @@
+"use client";
 import { assets, serviceData } from "@/assets/assets";
 import React from "react";
 import Image from "next/image";
+
 function Services() {
   return (
-    <div id="services" className="w-full px-[12%] scroll-mt-32">
-      <div className="text-center mb-4">
-        <h4 className="text-gray-500 uppercase tracking-widest text-sm sm:text-base font-ovo mb-2 flex items-center justify-center gap-2">
-          <span className="w-10 h-[1px] bg-gray-400 inline-block"></span>
-          What I offer
-          <span className="w-10 h-[1px] bg-gray-400 inline-block"></span>
+    <div
+      id="services"
+      className="w-full px-4 sm:px-8 lg:px-[12%] scroll-mt-32 py-24 relative overflow-hidden"
+    >
+      {/* Animated Background Gradient - Same as Hero */}
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(219,39,119,0.1),transparent_50%)] -z-10" />
+      <div className="text-center mb-12 relative z-10">
+        <h4 className="text-gray-500 dark:text-gray-400 uppercase tracking-widest text-sm sm:text-base font-ovo mb-4 flex items-center justify-center gap-3">
+          <span className="w-12 h-[2px] bg-gradient-to-r from-transparent to-purple-500 inline-block"></span>
+          <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">
+            What I offer
+          </span>
+          <span className="w-12 h-[2px] bg-gradient-to-l from-transparent to-pink-500 inline-block"></span>
         </h4>
-        <h2 className="text-3xl sm:text-5xl font-ovo font-bold">My Services</h2>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
+          My Services
+        </h2>
       </div>
 
-      <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+      <p className="text-center max-w-3xl mx-auto mt-5 mb-16 font-Ovo text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
         I offer a diverse range of services combining full-stack development,
         data analysis, machine learning, and AI solutions. From building
         responsive web and mobile applications to creating intelligent systems
         and data-driven insights, I help businesses solve complex problems
-        efficiently. Whether it’s developing scalable applications, analyzing
-        datasets, implementing predictive models, or delivering actionable AI
-        insights, my goal is to provide innovative solutions that drive
-        real-world impact.
+        efficiently.
       </p>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-6 my-10">
+      <div className="grid lg:grid-cols-2 xl:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 my-10 max-w-7xl mx-auto relative z-10">
         {serviceData.map(({ icon, title, description, link }, index) => (
           <div
             key={index}
-            className="border border-gray-400 rounded-lg px-8 py-12 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500"
+            className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl px-8 py-10 hover:shadow-2xl cursor-pointer hover:-translate-y-3 duration-500 transition-all overflow-hidden
+            hover:border-purple-300 dark:hover:border-purple-600
+            hover:bg-gradient-to-br hover:from-white hover:via-purple-50/50 hover:to-pink-50/50 dark:hover:from-gray-800 dark:hover:via-purple-900/20 dark:hover:to-pink-900/20"
           >
-            <Image src={icon} alt="" className="w-10" />
-            <h3 className="text-lg my-4 text-gray-700">{title}</h3>
-            <p className="text-sm text-gray-600 leading-5">{description}</p>
-            {/* <a href={link} className="flex items-center gap-2 text-sm mt-5">
-              {" "}
-              Read more{" "}
-              <Image src={assets.right_arrow} className="w-4" alt="" />
-            </a> */}
+            {/* Gradient Overlay on Hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-blue-500/0 group-hover:from-purple-500/5 group-hover:via-pink-500/5 group-hover:to-blue-500/5 rounded-2xl transition-all duration-500" />
+            
+            {/* Content */}
+            <div className="relative z-10">
+              {/* Icon with Background */}
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                <Image src={icon} alt={title} className="w-10" />
+              </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold my-4 text-gray-800 dark:text-gray-200 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                {title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
+                {description}
+              </p>
+
+              {/* Arrow Indicator */}
+              <div className="mt-6 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-2 transition-all duration-300">
+                <div className="w-8 h-[2px] bg-gradient-to-r from-purple-500 to-pink-500"></div>
+              </div>
+            </div>
           </div>
         ))}
       </div>

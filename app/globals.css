@@ -2,4 +2,67 @@
 
 * {
   font-family: outfit;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: linear-gradient(to bottom right, #faf5ff, #e0e7ff, #fce7f3);
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  background: linear-gradient(to bottom right, #faf5ff, #e0e7ff, #fce7f3);
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #faf5ff, #e0e7ff, #fce7f3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #9333ea, #ec4899);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #7c3aed, #db2777);
+}
+
+/* Smooth Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Selection Color */
+::selection {
+  background-color: #9333ea;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #9333ea;
+  color: white;
 }
