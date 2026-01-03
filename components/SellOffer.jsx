@@ -27,7 +27,7 @@ const SellOffer = () => {
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
           Engagement Packages
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+        <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
           Choose the collaboration style that fits your roadmap. Each offer is
           a fixed-scope sprint with clarity on deliverables, timeline, and
           investment before we start.
@@ -52,14 +52,14 @@ const SellOffer = () => {
                     <Image src={icon} alt={title} className="w-8 h-8" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                       {title}
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 font-semibold">{timeline}</p>
                   </div>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-300 mb-6 flex-1 leading-relaxed">
+                <p className="text-gray-700 dark:text-gray-300 mb-6 flex-1 leading-relaxed">
                   {description}
                 </p>
 
@@ -72,7 +72,7 @@ const SellOffer = () => {
                   ))}
                 </ul>
 
-                <div className="flex items-center justify-between text-gray-900 dark:text-gray-100 font-bold text-lg mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center justify-between text-gray-800 dark:text-gray-200 font-bold text-lg mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
                   <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                     {price}
                   </span>

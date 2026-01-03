@@ -23,7 +23,7 @@ function Services() {
         </h2>
       </div>
 
-      <p className="text-center max-w-3xl mx-auto mt-5 mb-16 font-Ovo text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+      <p className="text-center max-w-3xl mx-auto mt-5 mb-16 font-Ovo text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
         I offer a diverse range of services combining full-stack development,
         data analysis, machine learning, and AI solutions. From building
         responsive web and mobile applications to creating intelligent systems

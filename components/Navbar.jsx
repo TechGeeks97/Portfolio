@@ -45,9 +45,16 @@ const Navbar = () => {
       <nav
         className={`w-full fixed top-0 z-50 p-4 lg:px-8 xl:px-[8%] flex items-center justify-between transition-all duration-500 ${
           isScroll
-            ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-lg border-b border-gray-200/50 dark:border-gray-700/50"
+            ? "backdrop-blur-xl shadow-lg border-b border-gray-700/50"
             : "bg-transparent"
         }`}
+        style={
+          isScroll
+            ? {
+                background: "linear-gradient(to bottom right, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.95))",
+              }
+            : {}
+        }
       >
         {/* Logo */}
         <a

@@ -110,7 +110,7 @@ const ClientReview = () => {
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
             Upwork Reviews
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">
             See what clients say about working with me on Upwork. Real feedback from real projects.
           </p>
         </div>
