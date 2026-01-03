@@ -18,12 +18,12 @@ function Services() {
           </span>
           <span className="w-12 h-[2px] bg-gradient-to-l from-transparent to-pink-500 inline-block"></span>
         </h4>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold text-white mb-6">
           My Services
         </h2>
       </div>
 
-      <p className="text-center max-w-3xl mx-auto mt-5 mb-16 font-Ovo text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+      <p className="text-center max-w-3xl mx-auto mt-5 mb-16 font-Ovo text-lg text-white/90 leading-relaxed">
         I offer a diverse range of services combining full-stack development,
         data analysis, machine learning, and AI solutions. From building
         responsive web and mobile applications to creating intelligent systems
@@ -50,12 +50,12 @@ function Services() {
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold my-4 text-gray-800 dark:text-gray-200 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+              <h3 className="text-xl font-bold my-4 text-white group-hover:text-purple-400 transition-colors duration-300">
                 {title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
+              <p className="text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors duration-300">
                 {description}
               </p>
 

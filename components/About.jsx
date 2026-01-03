@@ -19,7 +19,7 @@ const About = () => {
           </span>
           <span className="w-12 h-[2px] bg-gradient-to-l from-transparent to-pink-500 inline-block"></span>
         </h4>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold text-white">
           About Me
         </h2>
       </div>
@@ -41,7 +41,7 @@ const About = () => {
 
         {/* Content */}
         <div className="flex-1 max-w-4xl mx-auto text-center xl:text-left">
-          <p className="mb-10 font-ovo leading-relaxed text-lg text-gray-700 dark:text-gray-300">
+          <p className="mb-10 font-ovo leading-relaxed text-lg text-white/90">
             Hi, I'm <span className="font-bold text-purple-600 dark:text-purple-400">Nouman</span>! I'm a seasoned software engineer and data science
             professional with a passion for building intelligent, scalable solutions and
             enterprise-grade full-stack applications. With{" "}
@@ -109,7 +109,7 @@ const About = () => {
 
           {/* Tools Section */}
           <div className="mt-12">
-            <h4 className="my-6 text-gray-800 dark:text-gray-200 font-Ovo font-bold text-xl flex items-center gap-2">
+            <h4 className="my-6 text-white font-Ovo font-bold text-xl flex items-center gap-2">
               <span className="w-8 h-[2px] bg-gradient-to-r from-purple-500 to-pink-500"></span>
               Tools I use
             </h4>

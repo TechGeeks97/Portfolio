@@ -62,10 +62,10 @@ const Contact = () => {
         </span>
         <span className="w-12 h-[2px] bg-gradient-to-l from-transparent to-pink-500 inline-block"></span>
       </h4>
-      <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
+      <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold text-white mb-6">
         Contact Me
       </h2>
-      <p className="text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto text-lg">
+      <p className="text-white/90 mb-12 max-w-2xl mx-auto text-lg">
         Have a project in mind? Let's discuss how we can bring your ideas to life!
       </p>
 

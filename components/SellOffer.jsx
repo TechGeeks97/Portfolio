@@ -24,10 +24,10 @@ const SellOffer = () => {
           </span>
           <span className="w-12 h-[2px] bg-gradient-to-l from-transparent to-pink-500 inline-block"></span>
         </h4>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold mb-6 text-white">
           Engagement Packages
         </h2>
-        <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+        <p className="text-white/90 text-lg leading-relaxed">
           Choose the collaboration style that fits your roadmap. Each offer is
           a fixed-scope sprint with clarity on deliverables, timeline, and
           investment before we start.
