@@ -13,12 +13,9 @@ const SellOffer = () => {
   return (
     <section
       id="sell-offer"
-      className="w-full px-4 sm:px-8 lg:px-[12%] py-24 relative overflow-hidden scroll-mt-24"
+      className="w-full px-4 sm:px-8 lg:px-[12%] py-24 relative overflow-hidden scroll-mt-24 bg-transparent"
     >
-      {/* Animated Background Gradient - Same as Hero */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] -z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(219,39,119,0.1),transparent_50%)] -z-10" />
+      {/* Background removed to show main theme */}
       <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
         <h4 className="text-gray-500 dark:text-gray-400 uppercase tracking-widest text-sm sm:text-base font-ovo mb-4 flex items-center justify-center gap-3">
           <span className="w-12 h-[2px] bg-gradient-to-r from-transparent to-purple-500 inline-block"></span>

@@ -51,24 +51,21 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="text-center px-4 sm:px-8 lg:px-[12%] scroll-mt-36 py-24 relative overflow-hidden"
+      className="text-center px-4 sm:px-8 lg:px-[12%] scroll-mt-36 py-24 pb-[calc(8rem+env(safe-area-inset-bottom))] sm:pb-[calc(10rem+env(safe-area-inset-bottom))] relative overflow-hidden bg-transparent"
     >
-      {/* Animated Background Gradient - Same as Hero */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] -z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(219,39,119,0.1),transparent_50%)] -z-10" />
+      {/* Background removed to show main theme */}
       <div className="relative z-10">
-        <h4 className="text-white/80 uppercase tracking-widest text-sm sm:text-base font-ovo mb-4 flex items-center justify-center gap-3">
-        <span className="w-12 h-[2px] bg-gradient-to-r from-transparent to-purple-300 inline-block"></span>
-        <span className="bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent font-bold">
+        <h4 className="text-gray-600 dark:text-gray-300 uppercase tracking-widest text-sm sm:text-base font-ovo mb-4 flex items-center justify-center gap-3">
+        <span className="w-12 h-[2px] bg-gradient-to-r from-transparent to-purple-500 inline-block"></span>
+        <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">
           Any Queries
         </span>
-        <span className="w-12 h-[2px] bg-gradient-to-l from-transparent to-pink-300 inline-block"></span>
+        <span className="w-12 h-[2px] bg-gradient-to-l from-transparent to-pink-500 inline-block"></span>
       </h4>
-      <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold text-white mb-6 drop-shadow-lg">
+      <h2 className="text-4xl sm:text-5xl md:text-6xl font-ovo font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-6">
         Contact Me
       </h2>
-      <p className="text-white/90 mb-12 max-w-2xl mx-auto text-lg drop-shadow-md">
+      <p className="text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto text-lg">
         Have a project in mind? Let's discuss how we can bring your ideas to life!
       </p>
 
@@ -81,11 +78,11 @@ const Contact = () => {
               onChange={onChange}
               onFocus={() => setFocused("name")}
               onBlur={() => setFocused("")}
-              className={`w-full p-4 outline-none border-2 rounded-xl bg-white/10 backdrop-blur-md text-white placeholder:text-white/70 transition-all duration-300 ${
+              className={`w-full p-4 outline-none border-2 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-md text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 transition-all duration-300 ${
                 focused === "name"
-                  ? "border-purple-400 shadow-lg shadow-purple-500/30"
-                  : "border-white/30"
-              } focus:border-purple-400 focus:shadow-lg focus:shadow-purple-500/30`}
+                  ? "border-purple-500 shadow-lg shadow-purple-500/30"
+                  : "border-gray-300 dark:border-gray-600"
+              } focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/30`}
               type="text"
               placeholder="Your Name"
               required
@@ -98,11 +95,11 @@ const Contact = () => {
               onChange={onChange}
               onFocus={() => setFocused("email")}
               onBlur={() => setFocused("")}
-              className={`w-full p-4 outline-none border-2 rounded-xl bg-white/10 backdrop-blur-md text-white placeholder:text-white/70 transition-all duration-300 ${
+              className={`w-full p-4 outline-none border-2 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-md text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 transition-all duration-300 ${
                 focused === "email"
-                  ? "border-purple-400 shadow-lg shadow-purple-500/30"
-                  : "border-white/30"
-              } focus:border-purple-400 focus:shadow-lg focus:shadow-purple-500/30`}
+                  ? "border-purple-500 shadow-lg shadow-purple-500/30"
+                  : "border-gray-300 dark:border-gray-600"
+              } focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/30`}
               type="email"
               placeholder="Your Email"
               required
@@ -117,11 +114,11 @@ const Contact = () => {
             onChange={onChange}
             onFocus={() => setFocused("message")}
             onBlur={() => setFocused("")}
-            className={`w-full p-4 outline-none border-2 rounded-xl bg-white/10 backdrop-blur-md text-white placeholder:text-white/70 resize-none transition-all duration-300 ${
+            className={`w-full p-4 outline-none border-2 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-md text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 resize-none transition-all duration-300 ${
               focused === "message"
-                ? "border-purple-400 shadow-lg shadow-purple-500/30"
-                : "border-white/30"
-            } focus:border-purple-400 focus:shadow-lg focus:shadow-purple-500/30`}
+                ? "border-purple-500 shadow-lg shadow-purple-500/30"
+                : "border-gray-300 dark:border-gray-600"
+            } focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/30`}
             rows="6"
             placeholder="Your Message"
             required

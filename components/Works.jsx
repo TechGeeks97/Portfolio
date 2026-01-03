@@ -7,12 +7,9 @@ const Works = () => {
   return (
     <div
       id="works"
-      className="w-full px-4 sm:px-8 lg:px-[12%] py-24 scroll-mt-28 relative overflow-hidden"
+      className="w-full px-4 sm:px-8 lg:px-[12%] py-24 scroll-mt-28 relative overflow-hidden bg-transparent"
     >
-      {/* Animated Background Gradient - Same as Hero */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] -z-10" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(219,39,119,0.1),transparent_50%)] -z-10" />
+      {/* Background removed to show main theme */}
 
       {/* Section Header */}
       <div className="text-center mb-16 relative z-10">

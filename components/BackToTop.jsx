@@ -5,29 +5,35 @@ const BackToTop = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      setVisible(window.scrollY > 300); // show after 300px scroll
+    const handleScroll = () => {
+      setVisible(window.scrollY > 300); // show after 300px
     };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  if (!visible) return null;
+
   return (
-    <>
-      {visible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition-colors duration-300 z-50 cursor-pointer"
-        >
-          <FaArrowUp />
-        </button>
-      )}
-    </>
+    <button
+      onClick={scrollToTop}
+      className="
+        fixed
+        right-4 sm:right-6
+        bottom-[calc(1rem+env(safe-area-inset-bottom))]
+        p-3 rounded-full bg-black text-white shadow-lg
+        hover:bg-gray-800 transition-colors duration-300
+        z-[9999]
+        cursor-pointer
+      "
+      aria-label="Back to top"
+    >
+      <FaArrowUp />
+    </button>
   );
 };
 

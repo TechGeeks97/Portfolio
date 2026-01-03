@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class', // Use class-based dark mode instead of media query to prevent iPhone system dark mode from affecting the site
   content: [
     "./app/**/*.{js,ts,jsx,tsx}", // if using App Router
 

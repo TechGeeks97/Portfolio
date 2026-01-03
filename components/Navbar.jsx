@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
 import { navItems, social_mediaLinks } from "@/utils/constants";
@@ -11,13 +11,33 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const openMenu = () => setMenuOpen(true);
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useEffect(() => {
     const handleScroll = () => setIsScroll(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+      // Close menu on escape key
+      const handleEscape = (e) => {
+        if (e.key === "Escape") {
+          closeMenu();
+        }
+      };
+      window.addEventListener("keydown", handleEscape);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleEscape);
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [menuOpen, closeMenu]);
 
   return (
     <>
@@ -32,7 +52,7 @@ const Navbar = () => {
         {/* Logo */}
         <a
           href="#home"
-          className="relative w-16 md:h-24 h-16 transform hover:scale-105 transition-transform duration-300"
+          className="w-16 md:h-24 h-16 transform hover:scale-105 transition-transform duration-300"
         >
           <Image
             src={assets.logo}
@@ -49,10 +69,10 @@ const Navbar = () => {
             <li key={id}>
               <a
                 href={`#${id}`}
-                className="group relative block font-Ovo px-5 py-2.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-white transition-all duration-300 overflow-hidden"
+                className="group block font-Ovo px-5 py-2.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-white transition-all duration-300 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
-                <span className="relative z-10 font-semibold">{name}</span>
+                <span className="z-10 font-semibold">{name}</span>
               </a>
             </li>
           ))}
@@ -68,7 +88,8 @@ const Navbar = () => {
             <Image src={assets.arrow_icon} alt="arrow" className="w-3" />
           </a>
 
-          <button
+          {/* Side Menu Icon - Commented Out */}
+          {/* <button
             onClick={openMenu}
             className="block md:hidden p-2 rounded-lg hover:bg-white/20 transition-colors"
           >
@@ -77,13 +98,13 @@ const Navbar = () => {
               alt="menu"
               className="w-6 brightness-0 invert transition-all duration-300"
             />
-          </button>
+          </button> */}
         </div>
       </nav>
 
-      {/* Mobile Sidebar */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-50 flex">
+      {/* Mobile Sidebar - Commented Out */}
+      {false && menuOpen && (
+        <div className="fixed inset-0 z-50 flex overflow-hidden">
           {/* Blurred Backdrop */}
           <div
             onClick={closeMenu}
@@ -93,83 +114,74 @@ const Navbar = () => {
           {/* Sidebar Panel */}
           <div
             ref={sideMenuRef}
-            className="ml-auto w-7/12 sm:w-2/3 max-w-xs h-full bg-gradient-to-br from-white via-purple-50/30 to-pink-50/30 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 backdrop-blur-xl shadow-2xl flex flex-col px-6 py-8 rounded-l-3xl transform transition-transform duration-300 translate-x-0 border-l border-gray-200/50 dark:border-gray-700/50"
+            className="ml-auto w-[85%] xs:w-4/5 sm:w-2/3 md:w-1/2 max-w-sm h-full backdrop-blur-xl shadow-2xl flex flex-col rounded-l-3xl transform transition-transform duration-300 translate-x-0 border-l border-gray-700/50 relative"
+            style={{
+              background: 'linear-gradient(to bottom right, #111827, #1f2937, #111827)'
+            }}
           >
-            {/* Background Pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.3),transparent_50%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(219,39,119,0.3),transparent_50%)]" />
-            </div>
 
             {/* Close Button */}
-            <div
-              className="absolute top-4 right-4 cursor-pointer p-2 hover:bg-white/50 dark:hover:bg-gray-800/50 rounded-full transition-colors z-10"
+            <button
+              type="button"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 cursor-pointer p-2 sm:p-2.5 hover:bg-white/20 active:bg-white/30 rounded-full transition-colors z-30 touch-manipulation"
               onClick={closeMenu}
+              aria-label="Close menu"
             >
-              <div className="w-6 h-6 relative">
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-gray-700 dark:bg-gray-300 rotate-45"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-gray-700 dark:bg-gray-300 -rotate-45"></div>
+              <div className="w-5 h-5 sm:w-6 sm:h-6 relative">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 sm:w-5 h-0.5 bg-gray-300 rotate-45"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 sm:w-5 h-0.5 bg-gray-300 -rotate-45"></div>
               </div>
-            </div>
+            </button>
 
-            {/* Logo in Sidebar */}
-            <div className="relative z-10 mb-8 mt-4">
-              <div className="relative w-20 h-20 mx-auto">
-                <Image
-                  src={assets.logo}
-                  alt="logo"
-                  fill
-                  className="object-contain"
-                />
+            {/* Scrollable Content Area */}
+            <div className="flex-1 overflow-y-auto px-2.5 sm:px-3 py-2 sm:py-3 min-h-0">
+              {/* Logo in Sidebar */}
+              <div className="relative z-10 mb-2 mt-1 flex-shrink-0">
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 mx-auto">
+                  <Image
+                    src={assets.logo}
+                    alt="logo"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 640px) 40px, 48px"
+                  />
+                </div>
+                <p className="text-center mt-0.5 text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  Nouman Saeed
+                </p>
               </div>
-              <p className="text-center mt-2 text-sm font-semibold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Nouman Saeed
-              </p>
-            </div>
 
-            {/* Menu Items */}
-            <ul className="mt-4 flex flex-col gap-3 relative z-10">
-              {navItems.map(({ name, id }) => (
-                <li key={id}>
-                  <a
-                    onClick={closeMenu}
-                    href={`#${id}`}
-                    className="group relative block w-full text-center text-base font-Ovo px-5 py-4 rounded-xl text-gray-700 dark:text-gray-300 hover:text-white transition-all duration-300 overflow-hidden border border-gray-200/50 dark:border-gray-700/50 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
-                    <span className="relative z-10 font-semibold flex items-center justify-center gap-2">
-                      {name}
-                      <span className="opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300">
-                        →
+              {/* Menu Items */}
+              <ul className="flex flex-col gap-0.5 relative z-10">
+                {navItems.map(({ name, id }) => (
+                  <li key={id} className="flex-shrink-0">
+                    <a
+                      onClick={closeMenu}
+                      href={`#${id}`}
+                      className="group block w-full text-center text-[11px] sm:text-xs font-Ovo px-2 sm:px-2.5 py-1.5 sm:py-2 rounded-md text-gray-300 hover:text-white active:text-white transition-all duration-300 overflow-hidden border border-gray-700/50 bg-gray-800/50 backdrop-blur-sm touch-manipulation relative"
+                    >
+                      <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 rounded-md" />
+                      <span className="relative z-10 font-semibold flex items-center justify-center gap-1">
+                        {name}
                       </span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            {/* Contact Button in Sidebar */}
-            <div className="mt-6 relative z-10">
-              <a
-                href="#contact"
-                onClick={closeMenu}
-                className="block w-full text-center px-5 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-Ovo font-semibold hover:shadow-lg hover:shadow-purple-500/50 transform hover:scale-105 transition-all duration-300"
-              >
-                Contact Me
-              </a>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* Social Links */}
-            <div className="mt-auto pt-6 border-t border-gray-200/50 dark:border-gray-700/50 relative z-10">
-              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mb-4 font-semibold">
+            {/* Social Links - Fixed at bottom, always visible */}
+            <div className="relative z-30 flex-shrink-0 pt-2 pb-3 px-2.5 sm:px-3 border-t-2 border-gray-700/80 bg-gray-800/90 backdrop-blur-md mt-auto">
+              <p className="text-center text-[11px] sm:text-xs font-bold text-purple-300 mb-1.5">
                 Follow Me
               </p>
-              <div className="flex justify-center gap-4">
+              <div className="flex justify-center gap-2.5 sm:gap-3">
                 <a
                   href={social_mediaLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 dark:bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-white text-xl transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50"
+                  className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 active:from-purple-700 active:to-pink-700 rounded-lg flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:shadow-purple-500/60 text-base sm:text-lg transition-all duration-300 transform hover:scale-110 active:scale-95 touch-manipulation"
+                  aria-label="GitHub"
                 >
                   <FaGithub />
                 </a>
@@ -177,7 +189,8 @@ const Navbar = () => {
                   href={social_mediaLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 dark:bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-white text-xl transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50"
+                  className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 active:from-purple-700 active:to-pink-700 rounded-lg flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:shadow-purple-500/60 text-base sm:text-lg transition-all duration-300 transform hover:scale-110 active:scale-95 touch-manipulation"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedin />
                 </a>
@@ -185,7 +198,8 @@ const Navbar = () => {
                   href={social_mediaLinks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 dark:bg-gray-800 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600 rounded-xl flex items-center justify-center text-gray-700 dark:text-gray-300 hover:text-white text-xl transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-purple-500/50"
+                  className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 active:from-purple-700 active:to-pink-700 rounded-lg flex items-center justify-center text-white shadow-lg hover:shadow-xl hover:shadow-purple-500/60 text-base sm:text-lg transition-all duration-300 transform hover:scale-110 active:scale-95 touch-manipulation"
+                  aria-label="Instagram"
                 >
                   <FaInstagram />
                 </a>

@@ -26,6 +26,8 @@ const reviewImages = [
 
 const ClientReview = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const openLightbox = (index) => {
     setSelectedImage(index);
@@ -43,14 +45,44 @@ const ClientReview = () => {
     setSelectedImage((prev) => (prev - 1 + reviewImages.length) % reviewImages.length);
   };
 
+  // Swipe handlers for mobile
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    }
+    if (isRightSwipe) {
+      prevImage();
+    }
+  };
+
   // Handle keyboard navigation
   React.useEffect(() => {
     if (selectedImage === null) return;
 
     const handleKeyPress = (e) => {
-      if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") nextImage();
-      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "Escape") {
+        setSelectedImage(null);
+      } else if (e.key === "ArrowRight") {
+        setSelectedImage((prev) => (prev + 1) % reviewImages.length);
+      } else if (e.key === "ArrowLeft") {
+        setSelectedImage((prev) => (prev - 1 + reviewImages.length) % reviewImages.length);
+      }
     };
 
     window.addEventListener("keydown", handleKeyPress);
@@ -61,12 +93,10 @@ const ClientReview = () => {
     <>
       <div
         id="reviews"
-        className="w-full px-4 sm:px-8 lg:px-[12%] py-24 scroll-mt-28 relative overflow-hidden"
+        className="w-full px-4 sm:px-8 lg:px-[12%] py-24 scroll-mt-28 relative overflow-hidden bg-transparent"
       >
         {/* Animated Background Gradient - Same as Hero */}
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 -z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)] -z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(219,39,119,0.1),transparent_50%)] -z-10" />
+        {/* Background removed to show main theme */}
 
         {/* Heading */}
         <div className="text-center mb-16 relative z-10">
@@ -187,17 +217,17 @@ const ClientReview = () => {
             </svg>
           </button>
 
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Minimal and elegant */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               prevImage();
             }}
-            className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-full p-4 shadow-lg hover:scale-110 transition-transform duration-300"
+            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 backdrop-blur-sm rounded-lg p-2 sm:p-2.5 transition-all duration-200 touch-manipulation opacity-70 hover:opacity-100"
             aria-label="Previous image"
           >
             <svg
-              className="w-8 h-8"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -205,7 +235,7 @@ const ClientReview = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
+                strokeWidth={3}
                 d="M15 19l-7-7 7-7"
               />
             </svg>
@@ -216,11 +246,11 @@ const ClientReview = () => {
               e.stopPropagation();
               nextImage();
             }}
-            className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors z-10 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-full p-4 shadow-lg hover:scale-110 transition-transform duration-300"
+            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 backdrop-blur-sm rounded-lg p-2 sm:p-2.5 transition-all duration-200 touch-manipulation opacity-70 hover:opacity-100"
             aria-label="Next image"
           >
             <svg
-              className="w-8 h-8"
+              className="w-4 h-4 sm:w-5 sm:h-5 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -228,16 +258,19 @@ const ClientReview = () => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
+                strokeWidth={3}
                 d="M9 5l7 7-7 7"
               />
             </svg>
           </button>
 
-          {/* Image */}
+          {/* Image - With swipe support */}
           <div
             className="relative max-w-6xl max-h-[90vh] w-full h-full"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
           >
             <Image
               src={reviewImages[selectedImage]}
