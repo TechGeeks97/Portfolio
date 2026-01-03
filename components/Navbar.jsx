@@ -76,10 +76,10 @@ const Navbar = () => {
             <li key={id}>
               <a
                 href={`#${id}`}
-                className="group block font-Ovo px-5 py-2.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-white transition-all duration-300 overflow-hidden"
+                className="group relative block font-Ovo px-5 py-2.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-white transition-all duration-300 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
-                <span className="z-10 font-semibold">{name}</span>
+                <span className="relative z-10 font-semibold">{name}</span>
               </a>
             </li>
           ))}
