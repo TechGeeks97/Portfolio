@@ -70,10 +70,10 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 rounded-2xl transition-all duration-500" />
                 <div className="relative">
                   <div className="flex items-center gap-3 sm:gap-4 mb-4">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Image className="w-7" src={icon} alt={title} />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex-shrink-0 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <Image className="w-7 sm:w-8 md:w-9" src={icon} alt={title} />
                     </div>
-                    <h3 className="font-bold text-base sm:text-lg text-gray-800 dark:text-gray-200 flex-1">{title}</h3>
+                    <h3 className="font-bold text-sm sm:text-base md:text-lg text-gray-800 dark:text-gray-200 flex-1 break-words line-clamp-2">{title}</h3>
                   </div>
                   {title === "Education & Certifications" ? (
                     <div className="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
@@ -100,7 +100,7 @@ const About = () => {
                       </div>
                     </div>
                   ) : (
-                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                    <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base leading-relaxed break-words overflow-wrap-anywhere">
                       {description}
                     </p>
                   )}
