@@ -35,9 +35,12 @@ function Services() {
         {serviceData.map(({ icon, title, description, link }, index) => (
           <div
             key={index}
-            className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 rounded-2xl px-8 py-10 hover:shadow-2xl cursor-pointer hover:-translate-y-3 duration-500 transition-all overflow-hidden
-            hover:border-purple-300 dark:hover:border-purple-600
-            hover:bg-gradient-to-br hover:from-white hover:via-purple-50/50 hover:to-pink-50/50 dark:hover:from-gray-800 dark:hover:via-purple-900/20 dark:hover:to-pink-900/20"
+            className="group relative bg-gray-800/90 backdrop-blur-sm border border-gray-700/50 rounded-2xl px-8 py-10 hover:shadow-2xl cursor-pointer hover:-translate-y-3 duration-500 transition-all overflow-hidden
+            hover:border-purple-500/50
+            hover:bg-gray-800"
+            style={{
+              background: 'linear-gradient(to bottom right, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.95))'
+            }}
           >
             {/* Gradient Overlay on Hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-blue-500/0 group-hover:from-purple-500/5 group-hover:via-pink-500/5 group-hover:to-blue-500/5 rounded-2xl transition-all duration-500" />
@@ -45,7 +48,7 @@ function Services() {
             {/* Content */}
             <div className="relative z-10">
               {/* Icon with Background */}
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg border border-purple-500/20">
                 <Image src={icon} alt={title} className="w-10" />
               </div>
 
