@@ -35,12 +35,9 @@ function Services() {
         {serviceData.map(({ icon, title, description, link }, index) => (
           <div
             key={index}
-            className="group relative bg-gray-800/90 backdrop-blur-sm border border-gray-700/50 rounded-2xl px-8 py-10 hover:shadow-2xl cursor-pointer hover:-translate-y-3 duration-500 transition-all overflow-hidden
+            className="group relative bg-white/90 backdrop-blur-sm border border-gray-300/50 rounded-2xl px-8 py-10 hover:shadow-2xl cursor-pointer hover:-translate-y-3 duration-500 transition-all overflow-hidden
             hover:border-purple-500/50
-            hover:bg-gray-800"
-            style={{
-              background: 'linear-gradient(to bottom right, rgba(31, 41, 55, 0.95), rgba(17, 24, 39, 0.95))'
-            }}
+            hover:bg-white"
           >
             {/* Gradient Overlay on Hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-blue-500/0 group-hover:from-purple-500/5 group-hover:via-pink-500/5 group-hover:to-blue-500/5 rounded-2xl transition-all duration-500" />
@@ -48,17 +45,17 @@ function Services() {
             {/* Content */}
             <div className="relative z-10">
               {/* Icon with Background */}
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-900/40 to-pink-900/40 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg border border-purple-500/20">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
                 <Image src={icon} alt={title} className="w-10" />
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold my-4 text-white group-hover:text-purple-400 transition-colors duration-300">
+              <h3 className="text-xl font-bold my-4 text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
                 {title}
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-white/80 leading-relaxed group-hover:text-white transition-colors duration-300">
+              <p className="text-sm text-gray-700 leading-relaxed group-hover:text-gray-900 transition-colors duration-300">
                 {description}
               </p>
 
